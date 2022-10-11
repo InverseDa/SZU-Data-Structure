@@ -25,6 +25,8 @@ public:
 
     LinkList();
 
+    ~LinkList();
+
     ListNode *LL_index(int i); //返回第i个节点的指针，不存在则返回NULL
     int LL_merge(LinkList &La, LinkList &Lb, LinkList &Lc);
 
@@ -37,6 +39,17 @@ public:
 LinkList::LinkList() {
     head = new ListNode;
     len = 0;
+}
+
+LinkList::~LinkList() {
+    auto ptr = head;
+    ListNode *tmp;
+    while (ptr) {
+        tmp = ptr;
+        ptr = ptr->next;
+        delete tmp;
+    }
+    head = nullptr;
 }
 
 //返回第i个节点的指针，不存在则返回NULL
@@ -156,8 +169,10 @@ int main() {
         lb.LL_insert(i, val);
     }
     LinkList lc;
-    if (lc.LL_merge(la, lb, lc) == ok) {
-        lc.LL_display();
-    }
+    lc.LL_merge(la, lb, lc);
+    lc.LL_display();
+
+    la.head = nullptr;
+    lb.head = nullptr;
     return 0;
 }

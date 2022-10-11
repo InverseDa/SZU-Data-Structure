@@ -64,5 +64,4 @@ int main() {
         if (it != final.begin()) cout << ' ';
         cout << *it;
     }
-
 }

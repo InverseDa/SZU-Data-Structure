@@ -19,8 +19,8 @@ int main() {
         myQue.push({t, p});
     }
     cin >> k;
-    windows.resize(k, {true,
-                       0}); //initialize vector<windows>, bool is that judging windows, true->open, false->close, int is that dealing time
+    //initialize vector<windows>, bool is judging windows, true->open, false->close, int is dealing time
+    windows.resize(k, {true, 0});
     for (int worldtime = 0; !myQue.empty(); worldtime++) {
         if (worldtime >= myQue.front().first) {
             for (int i = 0; i < k; i++) {   //judging windows...

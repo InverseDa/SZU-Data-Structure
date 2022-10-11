@@ -103,7 +103,7 @@ int LinkList::LL_insert(int i, int item) {
 
 int LinkList::LL_del(int i) {
     int real_pos = i - 1, cnt = 0;
-    if (real_pos > len || real_pos < 0)
+    if (real_pos >= len || real_pos < 0)
         return error;
     ListNode *p = head;
     while (p != nullptr) {
